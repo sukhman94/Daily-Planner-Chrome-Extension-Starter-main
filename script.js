@@ -2,26 +2,25 @@
 //Step 1 completed: Essential HTML Elements Defined
 
 let taskInput1 =document.getElementById("taskInput");
-const addTaskButton =document.getElementById("addTaskButton");
-const taskList =document.getElementById("taskList");
+const button =document.getElementById("addTaskButton");
+let taskList1 =document.getElementById("taskList");
 
 //Step 2 completed: Loaded tasks from LocalStorage
 //added
 
+let taskArray = getTasksFromLocalStorage()
+
+
 // step 3.1:Implement the getTaskFromLocalStorage()
-let taskArray =JSON.parse(localStorage.getItem("taskInput1")) || [];
 function getTasksFromLocalStorage(){
-    taskInput1 = taskInput.value.trim();
-    taskArray.push(taskInput1);
-    localStorage.setItem("taskArray" , JSON.stringify(taskArray));
-    taskList.innerHTML =""
-    for (let i = 0; i < taskArray.length; i++) {
-        taskList.innerHTML += "<li>" + taskArray[i] + "</li>"
-    }
+    JSON.parse(localStorage.getItem("taskInput1")) || [];
 }
-addTaskButton.addEventListener("click", function() {
-    getTasksFromLocalStorage()
-})
+
+//3.2 : 
+
+function updateTasksInLocalStorage(){
+    localStorage.setItem("taskArray" , JSON.stringify(taskArray));
+}
 
 //3.2 : Implement cerateTask function
 
