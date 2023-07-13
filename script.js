@@ -2,7 +2,7 @@
 //Step 1 completed: Essential HTML Elements Defined
 
 let taskInput1 =document.getElementById("taskInput");
-const button =document.getElementById("addTaskButton");
+const button1 =document.getElementById("addTaskButton");
 let taskList1 =document.getElementById("taskList");
 
 //Step 2 completed: Loaded tasks from LocalStorage
@@ -70,4 +70,14 @@ function createTaskElement(taskObj) {
     taskItem.appendChild(removeButton);
   
     return taskItem;
+}
+//Step 8: Implement the Render Tasks Function
+
+function renderTask(){
+    taskList1.innerHTML = ""
+    for (let i=0; i < taskArray.lenght ; i++){
+      
+     const taskElement = createTaskElement(taskArray[i])
+    taskList1.appendChild(taskElement);
+    }
 }
