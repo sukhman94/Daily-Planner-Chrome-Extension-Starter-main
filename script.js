@@ -1,8 +1,26 @@
-const taskInput =document.getElementById("taskInput");
+
+//Step 1 completed: Essential HTML Elements Defined.
+
+let taskInput1 =document.getElementById("taskInput");
 const addTaskButton =document.getElementById("addTaskButton");
 const taskList =document.getElementById("taskList");
 
+//Step 2 completed: Loaded tasks from LocalStorage
 
+let taskArray =JSON.parse(localStorage.getItem("taskInput1")) || [];
+function getTasksFromLocalStorage(){
+    taskInput1 = taskInput.value.trim();
+    taskArray.push(taskInput1);
+    localStorage.setItem("taskArray" , JSON.stringify(taskArray));
+    taskList.innerHTML =""
+    for (let i = 0; i < taskArray.length; i++) {
+        taskList.innerHTML += "<li>" + taskArray[i] + "</li>"
+    }
+}
+addTaskButton.addEventListener("click", function() {
+    getTasksFromLocalStorage()
+})
+ 
 // 3.5 Implement the createTaskElement(taskObj) Function
 function createTaskElement(taskObj) {
     const taskItem = document.createElement("li");
