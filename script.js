@@ -1,7 +1,7 @@
 
 //Step 1 completed: Essential HTML Elements Defined
 
-let taskInput1 =document.getElementById("taskInput");
+let taskText =document.getElementById("taskInput");
 const button1 =document.getElementById("addTaskButton");
 let taskList1 =document.getElementById("taskList");
 
@@ -13,7 +13,7 @@ let taskArray = getTasksFromLocalStorage()
 
 // step 3.1:Implement the getTaskFromLocalStorage()
 function getTasksFromLocalStorage(){
-    JSON.parse(localStorage.getItem("taskInput1")) || [];
+    JSON.parse(localStorage.getItem("taskText")) || [];
 }
 
 //3.2 : 
@@ -81,3 +81,19 @@ function renderTask(){
     taskList1.appendChild(taskElement);
     }
 }
+
+//Step 9: Added event listner
+
+button1.addEventListener("click", function() {
+    taskText = taskInput.value.trim();
+    if(taskText === ""){
+        return
+    }
+    const newTask = createTask(taskText);
+    
+    taskArray.push(newTask);
+    updateTasksInLocalStorage();
+    taskInput.value = "";
+    renderTask();
+
+})
