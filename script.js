@@ -97,3 +97,6 @@ button1.addEventListener("click", function() {
     renderTask();
 
 })
+
+//step 10 : 
+renderTask();
