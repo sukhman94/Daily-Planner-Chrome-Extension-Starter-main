@@ -30,7 +30,13 @@ function createTask(taskText)
      return {text: taskText, completed: false}
      
 } 
+//3.4 : Implemented delete task function
 
+function deleteTask(index){
+
+    taskArray.splice(index,1);
+    updateTasksInLocalStorage();
+}
  
 // 3.5 Implement the createTaskElement(taskObj) Function
 function createTaskElement(taskObj) {
