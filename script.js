@@ -7,6 +7,8 @@ const taskList =document.getElementById("taskList");
 
 //Step 2 completed: Loaded tasks from LocalStorage
 //added
+
+// step 3.1:Implement the getTaskFromLocalStorage()
 let taskArray =JSON.parse(localStorage.getItem("taskInput1")) || [];
 function getTasksFromLocalStorage(){
     taskInput1 = taskInput.value.trim();
@@ -20,6 +22,15 @@ function getTasksFromLocalStorage(){
 addTaskButton.addEventListener("click", function() {
     getTasksFromLocalStorage()
 })
+
+//3.2 : Implement cerateTask function
+
+function createTask(taskText)
+{
+     return {text: taskText, completed: false}
+     
+} 
+
  
 // 3.5 Implement the createTaskElement(taskObj) Function
 function createTaskElement(taskObj) {
